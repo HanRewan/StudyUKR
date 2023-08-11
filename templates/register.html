@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="reg-content">
+    <h1>Sign up</h1>
+    <div class="reg-form">
+        <form method="post" novalidate>
+            {% csrf_token %}
+            {% include 'includes/reg_form.html' %}
+            <div class="btn-centr-div">
+                <button type="submit" class="reg-butt">Register</button>
+            </div>
+        </form>
+    </div>
+    <div class="reg-bottom-text">
+        Already have an account?
+        <a href="{% url 'login' %}" class="log-bot-butt">Sign in</a>
+    </div>
+</div>
+{% endblock %}

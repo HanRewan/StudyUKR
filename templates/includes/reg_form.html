@@ -1,0 +1,31 @@
+{% load widget_tweaks %}
+
+{% for field in form %}
+    <div class="reg-field">
+        <div class="reg-lable">{{ field.label_tag }}</div>
+
+       <!-- <div class="reg-input">{{ field }}</div>-->
+        {% if form.is_bound %}
+            {% if field.errors %}
+                {% render_field field class="reg-input-is-invalid" %}
+                {% for error in field.errors %}
+                    <div class="invalid-feedback">
+                        {{ error }}
+                    </div>
+                {% endfor %}
+
+            {% else %}
+                {% render_field field class="reg-input-is-valid" %}
+            {% endif %}
+        {% else %}
+            {% render_field field class="reg-input" %}
+        {% endif %}
+        <!--
+        {% if field.help_text %}
+        <small>
+        <div class="reg-desc">{{ field.help_text|safe }}</div>
+        </small>
+        {% endif %}
+        -->
+    </div>
+{% endfor %}
