@@ -22,5 +22,4 @@ def register(request):
 
 
 def profile(request):
-    monsters = request.user.monsters.all()
-    return render(request, 'profile.html', {'user': request.user, 'monsters': monsters})
+    return render(request, 'profile.html', {'user': request.user})

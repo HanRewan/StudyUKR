@@ -19,12 +19,16 @@ from django.urls import path
 
 # Views from my apps
 from django.contrib.auth import views as auth_views
-from core.views import home
+from core.views import home, aboutus
 from accounts.views import login, register, profile
+from courses.views import allcourses, mycourses
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
+    path('about/', aboutus, name='about'),
+    path('courses/', allcourses, name='allcourses'),
+    path('courses/mycourses/', mycourses, name='mycourses'),
     path('account/login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('account/register/', register, name='register'),
     path('account/profile/', profile, name='profile'),

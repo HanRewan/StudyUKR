@@ -9,6 +9,7 @@
     justify-content: center;
     height: 36vh;
     width: 30%;
+    min-width: 300px;
     top: 32vh;
     left: 35%;
     border-radius: 0.5rem;

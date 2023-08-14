@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>StudyUKR</title>
+    <link rel="stylesheet" href="{% static 'css/sign_in_up.css' %}">
+    <link rel="stylesheet" href="{% static 'css/allcourses.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
@@ -16,22 +18,20 @@
                 StudyUKR
             </a>
             {% if user.is_authenticated %}
-                <div class="dropdown">
-                    <div class="drop-menu">
-                        <p class="username-text">{{ user.username }}</p>
-                        <img src="{% static 'css/media/riba_ava1.png' %}">
+                <div class="drop-menu">
+                    <p class="username-text">{{ user.username }}</p>
+                    <img src="{% static 'css/media/riba_ava1.png' %}">
 
-                    </div>
-                    <div class="dropdown-content-inactive">
-                        <a href="{% url 'profile' %}">
-                            <img src="{% static 'css/media/profile.png' %}">
-                            <p>Profile</p>
-                        </a>
-                        <a href="{% url 'logout' %}">
-                            <img src="{% static 'css/media/logout.png' %}">
-                            <p>Logout</p>
-                        </a>
-                    </div>
+                </div>
+                <div class="dropdown-content">
+                    <a href="{% url 'profile' %}">
+                        <img src="{% static 'css/media/profile.png' %}">
+                        <p>Profile</p>
+                    </a>
+                    <a href="{% url 'logout' %}">
+                        <img src="{% static 'css/media/logout.png' %}">
+                        <p>Logout</p>
+                    </a>
                 </div>
             {% else %}
             <div class="sign-buttons">
@@ -45,16 +45,13 @@
             {% endif %}
             <div class="nav-menu">
                 <a href="{% url 'home' %}">
-                    Home
+                    Головна
                 </a>
-                <a href="{% url 'home' %}">
-                    Monster Generator
+                <a href="{% url 'allcourses' %}">
+                    Усі курси
                 </a>
-                <a href="{% url 'home' %}">
-                    Cave Generator
-                </a>
-                <a href="{% url 'home' %}">
-                    Character Builder
+                <a href="{% url 'about' %}">
+                    Про нас
                 </a>
             </div>
         </div>
